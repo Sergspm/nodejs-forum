@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en-gb" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test nodejs forum</title>
+	<link rel="stylesheet" href="assets/libs/uikit/css/uikit.min.css">
+	<link rel="stylesheet" href="assets/libs/uikit/css/uikit.almost-flat.min.css">
+	<link rel="stylesheet" href="assets/libs/uikit/css/components/notify.min.css">
+	<link rel="stylesheet" href="assets/libs/uikit/css/components/notify.almost-flat.min.css">
+</head>
+<body>
+
+	<section class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom" id="app-outer">
+		<h1>Test forum</h1>
+
+		<hr>
+
+		<!-- List of messages -->
+		<ul class="uk-comment-list uk-margin-large-top" id="messages-outer"></ul>
+		<!-- End list of messages -->
+
+		<!-- Form for create or edit message -->
+		<form class="uk-form uk-margin-large-top uk-margin-large-bottom">
+			<h2>Add new message</h2>
+			<hr>
+			<div class="uk-form-row uk-width-1-1">
+				<input type="text" name="header" placeholder="Enter header" class="uk-width-1-2 uk-form-large">
+				<span class="uk-form-help-inline uk-text-danger"></span>
+			</div>
+			<div class="uk-form-row uk-width-1-1">
+				<input type="text" name="author" placeholder="Enter your name" class="uk-width-1-2 uk-form-large">
+				<span class="uk-form-help-inline uk-text-danger"></span>
+			</div>
+			<div class="uk-form-row uk-width-1-1 uk-margin-bottom">
+				<textarea name="body" rows="5" placeholder="Enter your message" class="uk-width-1-2 uk-form-large"></textarea>
+				<span class="uk-form-help-inline uk-text-danger"></span>
+			</div>
+			<button class="uk-button uk-button-large uk-button-primary" type="button" id="send-message">Submit</button>
+			<button class="uk-button uk-button-large uk-button-success uk-hidden" type="button" id="apply-message">Apply</button>
+			<button class="uk-button uk-button-large uk-button-danger uk-hidden" type="button" id="cancel-message">Cancel</button>
+		</form>
+		<!-- End form for create or edit message -->
+
+	</section>
+
+	<!-- Templates -->
+	<script type="text/html" id="message-item-template">
+		<article class="uk-comment">
+			<header class="uk-comment-header">
+				<img class="uk-comment-avatar" src="<%= avatar %>" width="50" height="50" alt="">
+				<h4 class="uk-comment-title">
+					<a href="#"><%= header %></a>
+					<a class="uk-close uk-float-right"></a>
+				</h4>
+				<div class="uk-comment-meta">
+					<%= author %> |
+					<%= time_created %> |
+					<a class="more"><i class="uk-icon-arrow-circle-o-down"></i> More</a> |
+					<a class="edit"><i class="uk-icon-edit"></i> Edit</a>
+				</div>
+			</header>
+			<% if (showBody && body) { %>
+				<div class="uk-comment-body">
+					<p><%= body %></p>
+				</div>
+			<% } %>
+		</article>
+	</script>
+	<!-- End Templates -->
+
+	<script src="assets/libs/requirejs/require.js" async="async" data-main="assets/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+	"name": "test_nodejs_forum",
+	"description": "Test forum based nodejs express with REST",
+	"license": "MIT",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Sergspm/nodejs-forum.git"
+	},
+	"dependencies": {
+		"express ": "~4.14.0",
+		"body-parser": "~1.15.2",
+		"winston": "~2.2.0",
+		"mongoose": "~4.6.3",
+		"nconf": "~0.8.4",
+		"mocha": "~3.1.2",
+		"should": "~11.1.1",
+		"supertest": "~2.0.0",
+		"chai": "~3.5.0"
+	},
+	"devDependencies" : {
+	}
+}
